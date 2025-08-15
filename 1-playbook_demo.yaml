@@ -1,0 +1,25 @@
+# This is my first ansibleplay
+- name: Ansible demo playbook
+  hosts: localhost # group of Remoteservers mentioned in inventory.ini
+  connection: local
+  become: true # it is indicating Root only
+  # Ansible run multiple tasks in single play each task is specifed separatedly.
+  tasks:
+
+  # Task 1 represents printing Hello world
+  - name: Print Helloworld!
+    ansbile.builtin.debug: # One of ansible builtin function to display on terminal
+      msg: "Hello World!"
+      
+  # Task 2 represents install an particular software on remote server
+  - name: installing zip software
+    ansible.builtin.package: # Choose package manager based on Os on remote server.
+      name: zip
+      state: present # present means Install; remove -> uninstall
+
+  # Task 3 represents services running state
+  - name: Run service...
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      state: enable 

@@ -1,0 +1,15 @@
+FIRST_NAME: "Janibabu"
+LAST_NAME: "Gude"
+DOB: "09-02-1998"
+MOBILE_NUMBER: "9676595754"
+EDUCATION_DETAILS: "B.Tech in EEC"
+PROFESsIONAL_DETAILS: "Lab-Technician at SVEC"
+SKILLSET: 
+    - "Linux"
+    - "Shell Scripting"
+ADDRESS:
+    - DOOR NO: "12-3-9/2"
+    - STREET: "Tenali Ramakrishna Road"
+    - CITY: "Tadepalligudem"
+    - STATE: "Andhra Pradesh"
+    - PINCODE: "534101"

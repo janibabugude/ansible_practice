@@ -1,0 +1,15 @@
+- name: ansible variables from file
+  hosts: localhost
+  connection: local
+  # bio info stored in variables
+  vars_files:
+    - info.yml
+  tasks:
+  # Task is to print Bio info about a person details takes from file
+  - name: print bio info about user
+    ansible.builtin.debug: 
+      msg: | 
+        "The user name is {{ LAST_NAME }} {{ FIRST_NAME }} and 
+        born on {{ DOB }}. contact number: {{ MOBILE_NUMBER }}
+        and worked as {{ PROFESIONAL_DETAILS }} having skills 
+        {{ SKILLSET }} and location is {{ ADDRESS}}"

@@ -1,0 +1,40 @@
+- name: ansible variables from file
+  hosts: localhost
+  connection: local
+  # bio info stored in variables
+  vars_prompt:
+    - name: LAST_NAME
+      prompt: "Enter your Last Name:"
+      private: no
+    - name: FIRST_NAME
+      prompt: "Enter your First Name:"
+      private: no
+    - name: DOB
+      prompt: "Enter your Date Of Birth:"
+      private: no
+    - name: MOBILE_NUMBER
+      prompt: "Enter your Mobile Number:"
+      private: no
+    - name: PROFESSIONAL_DETAILS
+      prompt: "Enter your PROFESSIONAL_DETAILS:"
+      private: no
+    - name: SKILLSET
+      prompt: "Enter your Skills:"
+      private: no
+      confirm: yes
+    - name: ADDRESS
+      prompt: "Enter your Address:"
+      private: no
+    
+      
+  tasks:
+  # Task is to print Bio info about a person details takes from prompt
+  - name: print bio info about user
+    ansible.builtin.debug: 
+      msg: | 
+        "User name: {{ LAST_NAME }} {{ FIRST_NAME }},
+        Date of Birth: {{ DOB }},
+        Contact number: {{ MOBILE_NUMBER }},
+        Occupation: {{ PROFESSIONAL_DETAILS }},
+        Skills: {{ SKILLSET }},
+        Location: {{ ADDRESS}}"
