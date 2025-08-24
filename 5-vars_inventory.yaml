@@ -1,0 +1,20 @@
+- name: Display user bio information from file
+  hosts: localhost
+  connection: local
+  become: true
+  # Load variables from the inventory file.
+  inventory:
+    - name: inventory.ini
+  #vars:
+  # - inventory.ini
+  tasks:
+  # Task is to print Bio Info about a person's details taken from prompt
+    - name: print bio info about user
+      ansible.builtin.debug: 
+        msg: | 
+          User name: {{ FIRST_NAME }} {{ LAST_NAME }},
+          Date of Birth: {{ DOB }},
+          Contact number: {{ MOBILE_NUMBER }},
+          Occupation: {{ PROFESSIONAL_DETAILS }},
+          Skills: {{ SKILLSET }},
+          Location: {{ ADDRESS }}

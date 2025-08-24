@@ -1,15 +1,19 @@
-- name: ansible variables from file
+- name: Display user bio information from file
   hosts: localhost
   connection: local
-  # bio info stored in variables
+  become: true
+  # Load variables from the specified file.
   vars_files:
     - info.yml
+  # Define tasks to display user bio information.  
   tasks:
-  # Task is to print Bio info about a person details takes from file
-  - name: print bio info about user
-    ansible.builtin.debug: 
-      msg: | 
-        "The user name is {{ LAST_NAME }} {{ FIRST_NAME }} and 
-        born on {{ DOB }}. contact number: {{ MOBILE_NUMBER }}
-        and worked as {{ PROFESIONAL_DETAILS }} having skills 
-        {{ SKILLSET }} and location is {{ ADDRESS}}"
+  # Task to show User bio information
+    - name: Show user bio details
+      ansible.builtin.debug:
+        msg: |
+          User: {{ FIRST_NAME }} {{ LAST_NAME }}
+          Date of Birth: {{ DOB }}
+          Contact Number: {{ MOBILE_NUMBER }}
+          Professional Details: {{ PROFESIONAL_DETAILS }}
+          Skills: {{ SKILLSET }}
+          Location: {{ ADDRESS }}

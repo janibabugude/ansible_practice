@@ -17,9 +17,15 @@
       name: zip
       state: present # present means Install; remove -> uninstall
 
+  # Task 3 represents install an particular software on remote server
+  - name: installing Nginx software
+    ansible.builtin.package: # Choose package manager based on Os on remote server.
+      name: nginx
+      state: present # present means Install; remove -> uninstall
+
   # Task 3 represents services running state
   - name: Run service...
     ansible.builtin.service:
       name: nginx
       state: started
-      state: enable 
+      enable: yes # enable means start the service in boot time also 
